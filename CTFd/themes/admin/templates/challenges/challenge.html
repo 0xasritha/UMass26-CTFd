@@ -2,6 +2,20 @@
 
 {% block stylesheets %}
 	{{ Assets.css("assets/css/challenge-board.scss", theme="admin") }}
+	<style>
+		/* Hide Create Hint button */
+		#challenge-hints button[data-target="#hint-create-modal"],
+		#challenge-hints .btn { display: none !important; }
+		/* Hide Create Flag button */
+		#challenge-flags button[data-target="#flag-create-modal"],
+		#challenge-flags .btn { display: none !important; }
+		/* Hide file upload form (Choose Files + Upload) */
+		#challenge-files form { display: none !important; }
+		/* Hide tag input form and delete buttons */
+		#tags .form-group { display: none !important; }
+		#tags #tags-add-input { display: none !important; }
+		#tags .delete-tag { display: none !important; }
+	</style>
 {% endblock %}
 
 {% block content %}
@@ -110,12 +124,8 @@
 				<nav class="nav nav-tabs nav-fill" id="challenge-properties" role="tablist">
 					<a class="nav-item nav-link small active" data-toggle="tab" href="#files" role="tab">Files</a>
 					<a class="nav-item nav-link small" data-toggle="tab" href="#flags" role="tab">Flags</a>
-					<a class="nav-item nav-link small" data-toggle="tab" href="#solution" role="tab">Solution</a>
-					<a class="nav-item nav-link small" data-toggle="tab" href="#topics" role="tab">Topics</a>
 					<a class="nav-item nav-link small" data-toggle="tab" href="#tags" role="tab">Tags</a>
 					<a class="nav-item nav-link small" data-toggle="tab" href="#hints" role="tab">Hints</a>
-					<a class="nav-item nav-link small" data-toggle="tab" href="#requirements" role="tab">Requirements</a>
-					<a class="nav-item nav-link small" data-toggle="tab" href="#next" role="tab">Next</a>
 				</nav>
 
 				<div class="tab-content" id="nav-tabContent">
@@ -123,6 +133,7 @@
 						<div class="row">
 							<div class="col-md-12">
 								<h3 class="text-center py-3 d-block">Files</h3>
+								<p class="text-center"><em style="color: red;">This is the <code>DOWNLOADABLE_ASSETS.zip</code> file you included in your challenge's folder. To change this, reupload your new <code>DOWNLOADABLE_ASSETS.zip</code> file in your challenge's folder in the <a href="https://github.com/UMassCybersecurity/UMassCTF26" target="_blank">UMassCTF26 Repo</a>.</em></p>
 								{% include "admin/modals/challenges/files.html" %}
 							</div>
 						</div>
@@ -131,30 +142,16 @@
 						<div class="row">
 							<div class="col-md-12">
 								<h3 class="text-center py-3 d-block">Flags</h3>
+								<p class="text-center"><em style="color: red;">To change the flag, update <code>flag</code> in your challenge's <code>info.yaml</code> in <a href="https://github.com/UMassCybersecurity/UMassCTF26" target="_blank">UMassCTF26 Repo</a></em></p>
 								{% include "admin/modals/challenges/flags.html" %}
 							</div>
 						</div>
 					</div>
-					<div class="tab-pane fade" id="solution" role="tabpanel">
-						<div class="row">
-							<div class="col-md-12">
-								<h3 class="text-center py-3 d-block">Solution</h3>
-								{% include "admin/modals/challenges/solution.html" %}
-							</div>
-						</div>
-					</div>
-					<div class="tab-pane fade" id="topics" role="tabpanel">
-						<div class="row">
-							<div class="col-md-12">
-								<h3 class="text-center py-3 d-block">Topics</h3>
-								{% include "admin/modals/challenges/topics.html" %}
-							</div>
-						</div>
-					</div>
-					<div class="tab-pane fade" id="tags" role="tabpanel">
+						<div class="tab-pane fade" id="tags" role="tabpanel">
 						<div class="row">
 							<div class="col-md-12">
 								<h3 class="text-center py-3 d-block">Tags</h3>
+								<p class="text-center"><em style="color: red;">To add tags, update <code>tags</code> in your challenge's <code>info.yaml</code> in <a href="https://github.com/UMassCybersecurity/UMassCTF26" target="_blank">UMassCTF26 Repo</a></em></p>
 								{% include "admin/modals/challenges/tags.html" %}
 							</div>
 						</div>
@@ -163,27 +160,12 @@
 						<div class="row">
 							<div class="col-md-12">
 								<h3 class="text-center py-3 d-block">Hints</h3>
+								<p class="text-center"><em style="color: red;">To add hints, update <code>hints</code> in your challenge's <code>info.yaml</code> in <a href="https://github.com/UMassCybersecurity/UMassCTF26" target="_blank">UMassCTF26 Repo</a></em></p>
 								{% include "admin/modals/challenges/hints.html" %}
 							</div>
 						</div>
 					</div>
-					<div class="tab-pane fade" id="requirements" role="tabpanel">
-						<div class="row">
-							<div class="col-md-12">
-								<h3 class="text-center py-3 d-block">Requirements</h3>
-								{% include "admin/modals/challenges/requirements.html" %}
-							</div>
-						</div>
 					</div>
-					<div class="tab-pane fade" id="next" role="tabpanel">
-						<div class="row">
-							<div class="col-md-12">
-								<h3 class="text-center py-3 d-block">Next Challenge</h3>
-								{% include "admin/modals/challenges/next.html" %}
-							</div>
-						</div>
-					</div>
-				</div>
 
 			</div>
 			<div id="challenge-update-container" class="col-md-6">
