@@ -20,6 +20,7 @@
 			<small class="form-text text-muted">Challenge Category - <em style="color: red; pointer-events: auto;">To change this, move your challenge's folder to the appropriate parent category folder in <a href="https://github.com/UMassCybersecurity/UMassCTF26" target="_blank">UMassCTF26 Repo</a></em></small>
 		</label>
 		<select class="form-control custom-select chal-category" name="category">
+			<option value="Welcome" {% if challenge.category == "Welcome" %}selected{% endif %}>Welcome</option>
 			<option value="Web Exploitation" {% if challenge.category == "Web Exploitation" %}selected{% endif %}>Web Exploitation</option>
 			<option value="Binary Exploitation" {% if challenge.category == "Binary Exploitation" %}selected{% endif %}>Binary Exploitation</option>
 			<option value="Reverse Engineering" {% if challenge.category == "Reverse Engineering" %}selected{% endif %}>Reverse Engineering</option>
@@ -27,6 +28,7 @@
 			<option value="Forensics" {% if challenge.category == "Forensics" %}selected{% endif %}>Forensics</option>
 			<option value="Hardware" {% if challenge.category == "Hardware" %}selected{% endif %}>Hardware</option>
 			<option value="RF (Radio Frequencies)" {% if challenge.category == "RF (Radio Frequencies)" %}selected{% endif %}>RF (Radio Frequencies)</option>
+			<option value="OSINT" {% if challenge.category == "OSINT" %}selected{% endif %}>OSINT</option>
 			<option value="Miscellaneous" {% if challenge.category == "Miscellaneous" %}selected{% endif %}>Miscellaneous</option>
 		</select>
 	</div>
