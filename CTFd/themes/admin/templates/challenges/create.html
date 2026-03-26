@@ -22,7 +22,19 @@
 				The category of your challenge
 			</small>
 		</label>
-		<input type="text" class="form-control" name="category" placeholder="Enter challenge category">
+		<select class="form-control custom-select" name="category">
+			<option value="" disabled selected>Select challenge category</option>
+			<option value="Welcome">Welcome</option>
+			<option value="Web Exploitation">Web Exploitation</option>
+			<option value="Binary Exploitation">Binary Exploitation</option>
+			<option value="Reverse Engineering">Reverse Engineering</option>
+			<option value="Cryptography">Cryptography</option>
+			<option value="Forensics">Forensics</option>
+			<option value="Hardware">Hardware</option>
+			<option value="RF (Radio Frequencies)">RF (Radio Frequencies)</option>
+			<option value="OSINT">OSINT</option>
+			<option value="Miscellaneous">Miscellaneous</option>
+		</select>
 	</div>
 	{% endblock %}
 
